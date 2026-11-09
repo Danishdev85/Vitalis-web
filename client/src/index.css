@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  body {
+    @apply bg-white text-deepblue;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism — used by Navbar */
+  .glass-nav {
+    background: rgba(241, 249, 255, 0.55);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+     display: none;
+     }
+  /* Riveted corner detail — small embossed circle, like a bolted panel */
+  .skeu-rivet {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 35%, #cfeef0 0%, #7fb8c4 40%, #3d7d8f 100%);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.5);
+  }
+
+  /* Subtle brushed-metal diagonal texture overlay */
+  .skeu-brushed {
+    background-image: repeating-linear-gradient(
+      115deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  /* Recessed input used inside the dark footer (newsletter field) */
+  .skeu-input {
+    background: #063d52;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.55), inset 0 -1px 0 rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .skeu-input:focus {
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.65), 0 0 0 2px rgba(226,252,214,0.35);
+  }
+
+  /* Embossed divider line — carved groove look */
+  .skeu-groove {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.4) 15%, rgba(0,0,0,0.4) 85%, transparent);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .scrollbar-hide { 
+    -ms-overflow-style: none; scrollbar-width: none; 
+  }
+
+  /* Skeuomorphism — used by Footer, blends teal into deepblue for more color depth */
+  .skeu-footer {
+    background: linear-gradient(165deg, #14967F 0%, #0d7a8f 30%, #095D7E 60%, #074a63 100%);
+  }
+
+  /* Multi-color accent stripe — top edge of the footer */
+  .skeu-accent-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, #E2FCD6 0%, #14967F 35%, #CCECEE 65%, #E2FCD6 100%);
+  }
+
+  .skeu-btn {
+    @apply shadow-skeu-btn transition-all duration-150 ease-out;
+  }
+  .skeu-btn:active {
+    @apply shadow-skeu-btn-active translate-y-[2px];
+  }
+
+  /* Neomorphism — used by Contact page forms */
+  .neo-surface {
+    background: #CCECEE;
+  }
+
+  .neo-input {
+    @apply neo-surface shadow-neo-inset rounded-2xl border-none outline-none px-5 py-3 text-deepblue placeholder-deepblue/50 transition-shadow duration-300;
+  }
+  .neo-input:focus {
+    @apply shadow-neo;
+  }
+
+  .neo-card {
+    @apply neo-surface shadow-neo rounded-3xl;
+  }
+
+  /* Hover lift — used on doctor/department cards */
+  .hover-lift {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px) scale(1.015);
+    @apply shadow-glow-teal;
+  }
+
+  /* Shimmer background used for skeleton loaders */
+  .shimmer-bg {
+    background: linear-gradient(90deg, #F1F9FF 25%, #CCECEE 50%, #F1F9FF 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
